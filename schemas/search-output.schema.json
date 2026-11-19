@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SearchOutput",
+  "type": "object",
+  "required": ["query", "filters", "results", "metadata"],
+  "properties": {
+    "query": { "type": "string" },
+    "filters": {
+      "type": "object",
+      "properties": {
+        "technology": { "type": ["string", "null"] },
+        "version": { "type": ["string", "null"] },
+        "authority": { "type": ["string", "null"] },
+        "topic": { "type": ["string", "null"] }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "technology",
+          "version",
+          "topic",
+          "subtopic",
+          "content",
+          "source_url",
+          "source_section",
+          "authority",
+          "related_concepts",
+          "score"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "technology": { "type": "string" },
+          "version": { "type": "string" },
+          "version_status": { "type": "string" },
+          "topic": { "type": "string" },
+          "subtopic": { "type": "string" },
+          "content": { "type": "string" },
+          "source_id": { "type": "string" },
+          "source_url": { "type": "string" },
+          "source_section": { "type": "string" },
+          "authority": { "type": "string" },
+          "related_concepts": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "graph_relations": {
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "score": { "type": "number" }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["total_results", "retrieval_method", "elapsed_ms"],
+      "properties": {
+        "total_results": { "type": "integer" },
+        "retrieval_method": { "type": "string" },
+        "elapsed_ms": { "type": "number" },
+        "version_notice": { "type": ["string", "null"] },
+        "estimated_tokens": { "type": "integer" },
+        "full_docs_tokens": { "type": "integer" },
+        "token_savings_pct": { "type": "number" }
+      }
+    }
+  }
+}

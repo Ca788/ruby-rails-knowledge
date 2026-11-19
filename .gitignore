@@ -1,0 +1,26 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# Never commit SQLite databases or local knowledge data (Section 3)
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+*.db
+database/
+documents/
+manifests/
+metadata/
+mirror/
+backups/
+
+# Secrets / environment files
+.env
+.env.*
+*.pem
+*.key
+credentials*

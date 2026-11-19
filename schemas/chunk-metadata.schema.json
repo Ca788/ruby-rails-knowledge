@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KnowledgeChunkMetadata",
+  "type": "object",
+  "required": [
+    "id",
+    "technology",
+    "version",
+    "topic",
+    "subtopic",
+    "title",
+    "content",
+    "authority",
+    "source_id",
+    "source_url",
+    "source_section",
+    "related_concepts",
+    "captured_at",
+    "content_hash"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 3 },
+    "technology": { "type": "string", "enum": ["ruby", "rails", "ecosystem", "security"] },
+    "version": { "type": "string", "minLength": 1 },
+    "topic": { "type": "string", "minLength": 1 },
+    "subtopic": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "content": { "type": "string", "minLength": 10 },
+    "authority": {
+      "type": "string",
+      "enum": ["official", "official_edge", "ecosystem_official", "community_standard", "security_standard"]
+    },
+    "source_id": { "type": "string", "minLength": 1 },
+    "source_url": { "type": "string", "pattern": "^https://" },
+    "source_section": { "type": "string", "minLength": 1 },
+    "related_concepts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "captured_at": { "type": "string" },
+    "content_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "additionalProperties": false
+}

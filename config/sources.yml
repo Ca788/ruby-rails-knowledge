@@ -1,0 +1,215 @@
+# Declarative Catalog of Verified Official & Ecosystem Knowledge Sources
+# All sources enforce HTTPS and explicit authority classification.
+
+sources:
+  # ==========================================
+  # Official Ruby Sources
+  # ==========================================
+  - id: ruby_docs
+    technology: ruby
+    authority: official
+    source_type: documentation
+    base_url: https://www.ruby-lang.org/en/documentation/
+    versioned: false
+    enabled: true
+    description: Official Ruby language documentation portal and core syntax guides.
+
+  - id: ruby_api
+    technology: ruby
+    authority: official
+    source_type: api
+    base_url: https://docs.ruby-lang.org/en/
+    versioned: true
+    enabled: true
+    supported_versions: ["3.1", "3.2", "3.3", "3.4"]
+    url_template: "https://docs.ruby-lang.org/en/{version}/{path}"
+    description: Official Ruby Core and Standard Library RDoc API documentation.
+
+  - id: ruby_news
+    technology: ruby
+    authority: official
+    source_type: release_notes
+    base_url: https://www.ruby-lang.org/en/news/
+    versioned: true
+    enabled: true
+    supported_versions: ["3.1", "3.2", "3.3", "3.4"]
+    description: Official Ruby release announcements, incompatible changes, and deprecations.
+
+  # ==========================================
+  # Official Ruby on Rails Sources
+  # ==========================================
+  - id: rails_guides
+    technology: rails
+    authority: official
+    source_type: guides
+    base_url: https://guides.rubyonrails.org/
+    versioned: true
+    enabled: true
+    supported_versions: ["6.1", "7.0", "7.1", "7.2", "8.0"]
+    url_template: "https://guides.rubyonrails.org/v{version}/{path}"
+    description: Official Ruby on Rails Guides (versioned v6.1 through v8.0).
+
+  - id: rails_api
+    technology: rails
+    authority: official
+    source_type: api
+    base_url: https://api.rubyonrails.org/
+    versioned: true
+    enabled: true
+    supported_versions: ["6.1", "7.0", "7.1", "7.2", "8.0"]
+    url_template: "https://api.rubyonrails.org/v{version}/{path}"
+    description: Official Ruby on Rails API Reference (RDoc/SDoc).
+
+  - id: rails_edge_guides
+    technology: rails
+    authority: official_edge
+    source_type: edge_guides
+    base_url: https://edgeguides.rubyonrails.org/
+    versioned: false
+    enabled: true
+    supported_versions: ["edge"]
+    url_template: "https://edgeguides.rubyonrails.org/{path}"
+    description: Official Ruby on Rails Edge Guides (unreleased main branch documentation).
+
+  - id: rails_releases
+    technology: rails
+    authority: official
+    source_type: release_notes
+    base_url: https://rubyonrails.org/
+    versioned: true
+    enabled: true
+    supported_versions: ["6.1", "7.0", "7.1", "7.2", "8.0"]
+    description: Official Ruby on Rails release notes, upgrade guides, and compatibility policies.
+
+  # ==========================================
+  # Complementary Ecosystem & Security Sources
+  # (Independent authority classification - never treated as Ruby/Rails official docs)
+  # ==========================================
+  - id: ruby_style_guide
+    technology: ecosystem
+    authority: community_standard
+    source_type: style_guide
+    base_url: https://rubystyle.guide/
+    versioned: false
+    enabled: true
+    description: Community-driven Ruby Style Guide maintained by RuboCop HQ.
+
+  - id: rubocop_docs
+    technology: ecosystem
+    authority: ecosystem_official
+    source_type: linter_docs
+    base_url: https://docs.rubocop.org/
+    versioned: false
+    enabled: true
+    description: Official RuboCop, RuboCop Rails, and RuboCop Performance documentation.
+
+  - id: rspec_docs
+    technology: ecosystem
+    authority: ecosystem_official
+    source_type: testing_docs
+    base_url: https://rspec.info/
+    versioned: false
+    enabled: true
+    description: Official RSpec testing framework documentation (rspec-core, rspec-expectations, rspec-mocks, rspec-rails).
+
+  - id: owasp_rails
+    technology: security
+    authority: security_standard
+    source_type: security_guide
+    base_url: https://owasp.org/
+    versioned: false
+    enabled: true
+    description: OWASP Ruby on Rails Security Cheat Sheet and application security best practices.
+
+version_matrix:
+  ruby:
+    - version: "3.1"
+      status: eol
+      docs_available: true
+      is_latest_stable: false
+      release_date: "2021-12-25"
+      eol_date: "2025-03-31"
+      docs_url: "https://docs.ruby-lang.org/en/3.1/"
+      notes: "Ruby 3.1 series (YJIT experimental, debug gem, hash shorthand). Historical documentation preserved."
+    - version: "3.2"
+      status: maintenance
+      docs_available: true
+      is_latest_stable: false
+      release_date: "2022-12-25"
+      eol_date: "2026-03-31"
+      docs_url: "https://docs.ruby-lang.org/en/3.2/"
+      notes: "Ruby 3.2 series (Data class, Regexp.timeout, WASI support, YJIT production-ready)."
+    - version: "3.3"
+      status: stable
+      docs_available: true
+      is_latest_stable: false
+      release_date: "2023-12-25"
+      eol_date: "2027-03-31"
+      docs_url: "https://docs.ruby-lang.org/en/3.3/"
+      notes: "Ruby 3.3 series (Prism parser gem, RJIT, Lrama, M:N thread scheduler, YJIT improvements)."
+    - version: "3.4"
+      status: current_stable
+      docs_available: true
+      is_latest_stable: true
+      release_date: "2024-12-25"
+      eol_date: "2028-03-31"
+      docs_url: "https://docs.ruby-lang.org/en/3.4/"
+      notes: "Ruby 3.4 series (Prism default parser, 'it' block parameter, chilled string literals, Happy Eyeballs v2)."
+
+  rails:
+    - version: "6.1"
+      status: eol
+      docs_available: true
+      is_latest_stable: false
+      release_date: "2020-12-09"
+      eol_date: "2024-10-01"
+      docs_url: "https://guides.rubyonrails.org/v6.1/"
+      notes: "Rails 6.1 series (strict_loading, delegated_type, horizontal sharding, Async query prelims). EOL but historical docs preserved."
+    - version: "7.0"
+      status: security_maintenance
+      docs_available: true
+      is_latest_stable: false
+      release_date: "2021-12-15"
+      eol_date: "2025-10-01"
+      docs_url: "https://guides.rubyonrails.org/v7.0/"
+      notes: "Rails 7.0 series (Zeitwerk-only autoloading, load_async, Active Record Encryption, Hotwire/Importmaps)."
+    - version: "7.1"
+      status: maintenance
+      docs_available: true
+      is_latest_stable: false
+      release_date: "2023-10-05"
+      eol_date: "2026-10-01"
+      docs_url: "https://guides.rubyonrails.org/v7.1/"
+      notes: "Rails 7.1 series (composite primary keys, normalizes, perform_all_later, Dockerfile default, strict_loading :n_plus_one_only)."
+    - version: "7.2"
+      status: stable
+      docs_available: true
+      is_latest_stable: false
+      release_date: "2024-08-09"
+      eol_date: "2027-08-09"
+      docs_url: "https://guides.rubyonrails.org/v7.2/"
+      notes: "Rails 7.2 series (Transaction.after_all_transactions_commit, YJIT enabled by default, progressive web apps, Devcontainers)."
+    - version: "8.0"
+      status: current_stable
+      docs_available: true
+      is_latest_stable: true
+      release_date: "2024-11-07"
+      eol_date: "2028-11-07"
+      docs_url: "https://guides.rubyonrails.org/v8.0/"
+      notes: "Rails 8.0 series (Solid Queue, Solid Cache, Solid Cable, Kamal 2, Propshaft default, built-in authentication generator)."
+    - version: "8.1"
+      status: unavailable
+      docs_available: false
+      is_latest_stable: false
+      release_date: null
+      eol_date: null
+      docs_url: "https://edgeguides.rubyonrails.org/"
+      notes: "Dedicated v8.1 static documentation not published separately; queries fall back to 8.0 (stable) or edge with explicit notice."
+    - version: "edge"
+      status: edge
+      docs_available: true
+      is_latest_stable: false
+      release_date: null
+      eol_date: null
+      docs_url: "https://edgeguides.rubyonrails.org/"
+      notes: "Rails main branch (Edge Guides). Unreleased features; never mixed with stable results unless requested."
